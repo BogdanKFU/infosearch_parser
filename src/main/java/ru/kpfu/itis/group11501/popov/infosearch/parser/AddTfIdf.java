@@ -56,8 +56,8 @@ public class AddTfIdf {
 
         Map<Pair<String, UUID>, Double> termsTfIdf = new HashMap<>();
         for (Pair<String, UUID> termArticle : termPerArticle.keySet()) {
-            double tfidf = ((double) termPerArticle.get(termArticle) / termInAllArticles.get(termArticle.getKey()))
-                    * log((double) articleCount / articleWordCount.get(termArticle.getValue()));
+            double tfidf = ((double) termPerArticle.get(termArticle) / articleWordCount.get(termArticle.getValue()))
+                    * log((double) articleCount / termInAllArticles.get(termArticle.getKey()));
             termsTfIdf.put(termArticle, tfidf);
         }
         return termsTfIdf;
